@@ -1,0 +1,109 @@
+@font-face {
+    font-family: "CascadiaCode";
+    src: url("./CascadiaCode.ttf");
+}
+
+* {
+    position: fixed;
+
+    --background-color: #262929;
+    --secondary-color : #4e5555;
+    --text-color      : white;
+
+    --text-font       : "CascadiaCode";
+
+    --full-height     : 87.5%;
+
+    --top-offset      : 5vh;
+
+    --transition-time : 250ms;
+}
+
+body {
+    background-color: var(--background-color);
+    color           : var(--text-color);
+    font-family     : var(--text-font);
+    font-size       : 1.25em;
+    padding         : 0 1vw 0 1vw;
+}
+
+#Toolbar  {
+    padding         : 0 0.5em;
+    left            : 1.4vw;
+    right           : 1.4vw;
+    height          : 1.25em;
+    border-color    : var(--secondary-color);
+    font-family     : inherit;
+    background-color: inherit;
+    color           : inherit;
+    border-style    : solid;
+    border-radius   : 5px;
+    outline         : none;
+    overflow        : scroll;
+    resize          : none;
+}
+
+#Toolbar > toolbar-item {
+    position        : relative;
+    margin          : 0 0.25em;
+    height          : 1.5em;
+    font-family     : inherit;
+    background-color: var(--secondary-color);
+    color           : inherit;
+    border-color    : var(--secondary-color);
+    border-style    : solid;
+    border-radius   : 5px;
+    cursor          : pointer;
+    
+    transition      : var(--transition-time);
+    user-select     : none;
+}
+
+#Toolbar > toolbar-item:hover {
+    background-color: var(--text-color);
+    color           : var(--background-color);
+    border-color    : var(--text-color);
+}
+
+textarea  {
+    padding         : 1em;
+    border-color    : var(--secondary-color);
+    font-family     : inherit;
+    background-color: inherit;
+    color           : inherit;
+    border-style    : solid;
+    border-radius   : 5px;
+    width           : 46%;
+    height          : var(--full-height);
+    top             : var(--top-offset);
+    outline         : none;
+    overflow        : scroll;
+    resize          : none;
+}
+
+#Output {
+    right           : 1.4vw;
+}
+
+hidden {
+    visibility      : hidden;
+}
+
+#ToolbarItemSelection {
+    background-color: #4e5555;
+    padding         : 0.75em;
+    top             : var(--top-offset);
+}
+
+#ToolbarItemSelection > ul {
+    position        : relative;
+    padding         : 0.25em;
+    margin          : 0.25em;
+    cursor          : pointer;
+    transition      : var(--transition-time);
+}
+
+#ToolbarItemSelection > ul:hover {
+    background-color: var(--text-color);
+    color           : var(--background-color);
+}
