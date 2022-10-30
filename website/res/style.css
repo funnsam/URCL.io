@@ -39,7 +39,7 @@ body {
     border-style    : solid;
     border-radius   : 5px;
     outline         : none;
-    overflow        : auto;
+    overflow        : auto hidden;
     resize          : none;
 }
 
