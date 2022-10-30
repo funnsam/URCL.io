@@ -39,7 +39,7 @@ body {
     border-style    : solid;
     border-radius   : 5px;
     outline         : none;
-    overflow        : scroll;
+    overflow        : auto;
     resize          : none;
 }
 
@@ -77,7 +77,7 @@ textarea  {
     height          : var(--full-height);
     top             : var(--top-offset);
     outline         : none;
-    overflow        : scroll;
+    overflow        : auto;
     resize          : none;
 }
 
