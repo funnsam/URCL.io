@@ -2,3 +2,5 @@ github.com/shurcooL/go v0.0.0-20200502201357-93f07166e636 h1:aSISeOcal5irEhJd1M+
 github.com/shurcooL/go v0.0.0-20200502201357-93f07166e636/go.mod h1:TDJrrUr11Vxrven61rcy3hJMUqaf/CLWYhHNPmT14Lk=
 github.com/shurcooL/go-goon v1.0.0 h1:BCQPvxGkHHJ4WpBO4m/9FXbITVIsvAm/T66cCcCGI7E=
 github.com/shurcooL/go-goon v1.0.0/go.mod h1:2wTHMsGo7qnpmqA8ADYZtP4I1DD94JpXGQ3Dxq2YQ5w=
+github.com/teamortix/golang-wasm/wasm v0.0.0-20220630082535-f3e518b544db h1:WjuAaAU0DojriAHY/TNV+Km18cImbaOu1K8j1PPrD1M=
+github.com/teamortix/golang-wasm/wasm v0.0.0-20220630082535-f3e518b544db/go.mod h1:nskvTyoGIaAsC+664SkRitVI1ft6dm1xerCr50YZsnY=

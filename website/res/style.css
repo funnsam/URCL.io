@@ -39,7 +39,7 @@ body {
     border-style    : solid;
     border-radius   : 5px;
     outline         : none;
-    overflow        : auto hidden;
+    overflow        : auto;
     resize          : none;
 }
 
@@ -101,6 +101,7 @@ hidden {
     margin          : 0.25em;
     cursor          : pointer;
     transition      : var(--transition-time);
+    user-select     : none;
 }
 
 #ToolbarItemSelection > ul:hover {
