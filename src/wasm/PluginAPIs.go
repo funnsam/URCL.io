@@ -5,7 +5,7 @@ import (
 )
 
 func Placeholder(this js.Value, args []js.Value) interface{} {
-	js.Global().Call("alert", "This is not implemented yet!")
+	ShowDialog(js.Null(), []js.Value{})
 
 	return nil
 }

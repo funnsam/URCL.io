@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="./res/style.css">
+
+    <script src="res/DialogDragHandler.js"></script>
     <script src="res/wasm_exec.js"></script>
     <script src="res/loader.js"></script>
     <title>URCL.io</title>
@@ -21,8 +23,8 @@
         <div id="ToolbarItemSelection"></div>
         <div id="Dialog" class="Dialog" draggable="true" ondragstart="StartDrag(event);" ondragend="StopDrag(event, this.id);">
             <span id="DialogCloser" class="DialogCloser" onclick="CloseDialog(this.parentNode);"></span>
-            <div id="DialogTitle" class="DialogTitle">Hello</div><br>
-            <div id="DialogContent" class="DialogContent">Hello</div><br>
+            <div id="DialogTitle" class="DialogTitle">Fallback Dialog</div><br>
+            <div id="DialogContent" class="DialogContent">Is it not implemented? idk.</div>
         </div>
     </hidden>
 </body>
