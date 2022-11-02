@@ -9,7 +9,7 @@ function StartDrag(ev) {
     offsetY = ev.clientY - rect.y;
 };
 
-function StopDrag(ev) {
-    document.getElementById("Dialog").style.left = ev.clientX - offsetX + 'px';
-    document.getElementById("Dialog").style.top = ev.clientY - offsetY + 'px';
+function StopDrag(ev, targ) {
+    document.getElementById(targ).style.left = ev.clientX - offsetX + 'px';
+    document.getElementById(targ).style.top = ev.clientY - offsetY + 'px';
 };

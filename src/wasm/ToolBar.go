@@ -76,8 +76,3 @@ func RegisterToolbarMenuItem(this js.Value, args []js.Value) interface{} {
 
 	return true
 }
-
-func init() {
-	RegisterFunction("OpenToobarMenu", OpenToobarMenu)
-	RegisterFunction("RegisterToolbarMenuItem", RegisterToolbarMenuItem)
-}

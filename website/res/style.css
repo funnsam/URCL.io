@@ -29,7 +29,7 @@ body {
     padding         : 0 1vw 0 1vw;
 }
 
-#Dialog {
+.Dialog {
     background-color: var(--background-color);
     border-color    : var(--secondary-color);
     border-style    : solid;
@@ -40,16 +40,16 @@ body {
     overflow        : auto;
 }
 
-#Dialog * {
+.Dialog * {
     position        : relative;
 }
 
-#DialogTitle {
+.DialogTitle {
     font-weight     : bold;
     display         : inline;
 }
 
-#DialogCloser {
+.DialogCloser {
     text-align      : right;
     background-color: red;
     height          : 0.6em;
@@ -57,6 +57,7 @@ body {
     border-radius   : 50%;
     display         : inline-block;
     cursor          : pointer;
+    margin-bottom   : 0.05em;
 }
 
 #RunMenu {
