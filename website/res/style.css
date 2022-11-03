@@ -166,8 +166,8 @@ hidden {
     background-color: var(--background-color);
     color           : var(--text-color);
     z-index         : 1;
-    caret-color     : white; 
     tab-size        : 4;
+    caret-color     : white;
     border          : solid var(--secondary-color);
     border-radius   : 5px;
     width           : 46%;
@@ -177,4 +177,5 @@ hidden {
     outline         : none;
     overflow        : auto;
     resize          : none;
+    display         : inline block;
 }

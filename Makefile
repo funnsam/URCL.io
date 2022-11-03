@@ -6,7 +6,6 @@ build-frontend:
 	go build -o ./website/res/main.wasm ./src/frontend/
 
 build-emulater:
-	cp ./src/vendor/v_*.go ./src/backend/emulater
 	go build -o ./website/res/emulater.wasm ./src/backend/emulater
 
 clean:

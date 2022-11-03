@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./res/style.css">
 
     <script src="res/DialogDragHandler.js"></script>
+    <script src="res/CodesTabHandler.js"></script>
     <script src="res/wasm_exec.js"></script>
     <script src="res/loader.js"></script>
     <title>URCL.io</title>
@@ -16,7 +17,7 @@
     <div id="Toolbar"></div>
     <div id="RunMenu" onclick="InvokeEmulater();">Run</div>
 
-    <textarea spellcheck="false" id="Codes">Hello world!</textarea>
+    <textarea spellcheck="false" id="Codes" onkeydown="TabHandler(this, event);">Hello world!</textarea>
     <textarea id="Output" readonly>Output</textarea>
     
     <hidden id="Hidden">

@@ -10,8 +10,7 @@ import (
 //
 // Deprecated: Will be featured in the library
 func SimpleShowDialog(this js.Value, args []js.Value) interface{} {
-	ShowDialog(this, []js.Value{js.ValueOf("simple"), args[0], args[1]})
-	return true
+	return ShowDialog(this, []js.Value{js.ValueOf("simple"), args[0], args[1]})
 }
 
 // Usage: nil.SetDialogContent(dialogID, contentType, title, content)
@@ -35,11 +34,12 @@ func SetDialogContent(this js.Value, args []js.Value) interface{} {
 // Usage: nil.SetDialogContent(contentType, title, content)
 func ShowDialog(this js.Value, args []js.Value) interface{} {
 	if len(args) < 3 {
-		return false
+		return 0
 	}
 
 	dialog := GetElementById("Dialog").Call("cloneNode", true)
-	dialogid := strconv.Itoa(rand.Int())
+	dialogidint := rand.Int()
+	dialogid := strconv.Itoa(dialogidint)
 
 	dialog.Set("id", "Dialog"+dialogid)
 	dialog.Get("childNodes").Index(3).Set("id", "DialogTitle"+dialogid)
@@ -57,7 +57,7 @@ func ShowDialog(this js.Value, args []js.Value) interface{} {
 	}
 
 	js.Global().Get("document").Get("body").Call("appendChild", dialog)
-	return dialogid
+	return dialogidint
 }
 
 // Usage: dialog.CloseDialog()
