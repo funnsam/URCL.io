@@ -15,3 +15,8 @@ func RegisterOnClick(tmp js.Value, function func(this js.Value, args []js.Value)
 func GetElementById(id string) js.Value {
 	return js.Global().Get("document").Call("getElementById", id)
 }
+
+func Hang() {
+	var tmp = make(chan int)
+	<-tmp
+}

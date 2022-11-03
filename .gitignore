@@ -1,2 +1,2 @@
-src/frontend/v_*.go
 src/backend/*/v_*.go
+src/frontend/v_*.go

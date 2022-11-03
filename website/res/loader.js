@@ -5,3 +5,4 @@ function LoadWASM(url) {
 }
 
 LoadWASM("./res/main.wasm")
+LoadWASM("./res/emulater.wasm")

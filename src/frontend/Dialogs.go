@@ -6,21 +6,24 @@ import (
 	"syscall/js"
 )
 
+// A simple wrapper function for ShowDialog()
+//
+// Deprecated: Will be featured in the library
 func SimpleShowDialog(this js.Value, args []js.Value) interface{} {
-	SetDialogContent(this, []js.Value{js.ValueOf("simple"), args[0], args[1]})
-	ShowDialog(this, args)
+	ShowDialog(this, []js.Value{js.ValueOf("simple"), args[0], args[1]})
 	return true
 }
 
+// Usage: nil.SetDialogContent(dialogID, contentType, title, content)
 func SetDialogContent(this js.Value, args []js.Value) interface{} {
-	if len(args) < 3 {
+	if len(args) < 4 {
 		return false
 	}
 
-	switch args[0].String() {
+	switch args[1].String() {
 	case "simple":
-		GetElementById("DialogTitle").Set("innerHTML", args[1].String())
-		GetElementById("DialogContent").Set("innerHTML", args[2].String())
+		GetElementById("DialogTitle"+strconv.Itoa(args[0].Int())).Set("innerHTML", args[2].String())
+		GetElementById("DialogContent"+strconv.Itoa(args[0].Int())).Set("innerHTML", args[3].String())
 
 	default:
 		return false
@@ -29,7 +32,12 @@ func SetDialogContent(this js.Value, args []js.Value) interface{} {
 	return true
 }
 
+// Usage: nil.SetDialogContent(contentType, title, content)
 func ShowDialog(this js.Value, args []js.Value) interface{} {
+	if len(args) < 3 {
+		return false
+	}
+
 	dialog := GetElementById("Dialog").Call("cloneNode", true)
 	dialogid := strconv.Itoa(rand.Int())
 
@@ -38,10 +46,21 @@ func ShowDialog(this js.Value, args []js.Value) interface{} {
 	dialog.Get("childNodes").Index(6).Set("id", "DialogContent"+dialogid)
 	dialog.Get("style").Set("left", "30vw")
 	dialog.Get("style").Set("top", "30vh")
+
+	switch args[0].String() {
+	case "simple":
+		dialog.Get("childNodes").Index(3).Set("innerHTML", args[1].String())
+		dialog.Get("childNodes").Index(6).Set("innerHTML", args[2].String())
+
+	default:
+		return 0
+	}
+
 	js.Global().Get("document").Get("body").Call("appendChild", dialog)
-	return true
+	return dialogid
 }
 
+// Usage: dialog.CloseDialog()
 func CloseDialog(this js.Value, args []js.Value) interface{} {
 	args[0].Call("remove")
 	return true
