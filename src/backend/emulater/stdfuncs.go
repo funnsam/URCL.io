@@ -15,6 +15,19 @@ func RegisterOnClick(tmp js.Value, function func(this js.Value, args []js.Value)
 	tmp.Set("onclick", js.FuncOf(function))
 }
 
-func GetElementById(id string) js.Value {
+// Same as getElementById in JavaScript
+func GetElementByID(id string) js.Value {
 	return js.Global().Get("document").Call("getElementById", id)
+}
+
+func RegisterToolbarMenu(name string) {
+	js.Global().Get("RegisterToolbarMenu").Invoke(name)
+}
+
+func RegisterToolbarMenuItem(menu, name string, jsfunc js.Func) {
+	js.Global().Get("RegisterToolbarMenuItem").Invoke(menu, name, jsfunc)
+}
+
+func ShowDialog(tod, title, content string) int {
+	return js.Global().Get("ShowDialog").Invoke(tod, title, content).Int()
 }

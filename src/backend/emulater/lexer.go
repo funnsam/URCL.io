@@ -8,7 +8,7 @@ import (
 )
 
 func Tokenize(raw []byte) []Instruction {
-	println(fmt.Sprintf("%#v", Split(string(raw))))
+	ShowDialog("simple", "Output of lexer", fmt.Sprintf("%v", Split(string(raw))))
 
 	return []Instruction{}
 }
@@ -20,26 +20,55 @@ func Split(raw string) [][]string {
 		currln := []byte(scanner.Text())
 
 		startOfLn := true
+		inQuote := false
 		isSpaceRepeating := false
 		currlnlist := make([]string, 0, 10)
 		currlnbuf := ""
 
-		for _, element := range currln {
+	cln:
+		for i, element := range currln {
 			switch element {
 			case ' ', '\t':
 				if startOfLn || isSpaceRepeating {
 					continue
 				} else {
-					currlnlist = append(currlnlist, currlnbuf)
-					currlnbuf, isSpaceRepeating = "", true
+					if !inQuote {
+						currlnlist = append(currlnlist, currlnbuf)
+						currlnbuf, isSpaceRepeating = "", true
+					} else {
+						currlnbuf += string(element)
+						startOfLn, isSpaceRepeating = false, false
+					}
 				}
+
+			case '"', '\'':
+				if !inQuote {
+					inQuote = true
+				} else {
+					currlnbuf = string(element) + currlnbuf + string(element)
+					startOfLn, isSpaceRepeating, inQuote = false, false, false
+				}
+
+			case '/':
+				if len(currln) <= i+1 {
+					currlnbuf += string(element)
+					startOfLn, isSpaceRepeating = false, false
+				} else if currln[i+1] != '/' {
+					currlnbuf += string(element)
+					startOfLn, isSpaceRepeating = false, false
+				} else {
+					break cln
+				}
+
 			default:
 				currlnbuf += string(element)
 				startOfLn, isSpaceRepeating = false, false
 			}
 		}
-		currlnlist = append(currlnlist, currlnbuf)
-		if !reflect.DeepEqual(currlnlist, []string{""}) {
+		if currlnbuf != "" {
+			currlnlist = append(currlnlist, currlnbuf)
+		}
+		if !(reflect.DeepEqual(currlnlist, []string{""}) || reflect.DeepEqual(currlnlist, []string{})) {
 			buf = append(buf, currlnlist)
 		}
 	}
