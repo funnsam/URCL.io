@@ -5,12 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="./res/style.css">
+    <link rel="stylesheet" href="./res/spacings.css">
 
     <script src="res/DialogDragHandler.js"></script>
     <script src="res/CodesTabHandler.js"></script>
     <script src="res/wasm_exec.js"></script>
+    <script src="res/cookies.js"></script>
     <script src="res/loader.js"></script>
+    <script src="res/settings.js"></script>
     <title>URCL.io</title>
 </head>
 <body ondragover="event.preventDefault(); event.dataTransfer.dropEffect = 'move';">
@@ -22,7 +24,8 @@
     
     <hidden id="Hidden">
         <div id="ToolbarItemSelection"></div>
-        <div id="Dialog" class="Dialog" draggable="true" ondragstart="StartDrag(event);" ondragend="StopDrag(event, this.id);">
+        <div id="Dialog" class="Dialog" draggable="true" ondragstart="StartDrag(event, this);" ondragend="StopDrag(event, this.id);"
+        onclick="this.parentNode.appendChild(this)">
             <span id="DialogCloser" class="DialogCloser" onclick="CloseDialog(this.parentNode);"></span>
             <div id="DialogTitle" class="DialogTitle">Fallback Dialog</div><br>
             <div id="DialogContent" class="DialogContent">Is it not implemented? idk.</div>

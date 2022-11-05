@@ -1,0 +1,143 @@
+@font-face {
+    font-family: "CascadiaCode";
+    src: url("./../../res/CascadiaCode.ttf");
+}
+
+* {
+    position: fixed;
+
+    --background-color: #17528C;
+    --secondary-color : #9AB6D2;
+    --selection-color : #b4b4b4;
+
+    --text-color      : #F0F0F0;
+    --secondary-text-c: #000000;
+
+    --text-font       : "Segoe UI"; /*Segoe UI  CascadiaCode*/
+
+    --transition-time : 250ms;
+
+    --aero-effect     : 0 2px     6px  rgba(0,0,0,0.5),
+    inset 0 1px     10px rgba(255,255,255,0.3),
+    inset 0 10px    10px rgba(255,255,255,0.2),
+    inset 0 10px    20px rgba(255,255,255,0.25),
+    inset 0 -15px   30px rgba(0,0,0,0.3);
+    --drop-shadow     : 0 2px 6px rgba(0,0,0,0.5);
+}
+
+body {
+    background-color: var(--background-color);
+    color           : var(--text-color);
+    font-family     : var(--text-font);
+    font-size       : 0.95em;
+}
+
+.Dialog {
+    background-color: var(--secondary-color);
+    border-color    : var(--secondary-text-c);
+    border-style    : solid;
+    border-width    : 1px;
+    border-radius   : 5px 5px 0 0;
+
+    box-shadow      : var(--aero-effect);
+}
+
+.DialogTitle {
+    color           : var(--secondary-text-c);
+    font-weight     : 500;
+}
+
+.DialogContent {
+    background-color: var(--text-color);
+    color           : var(--secondary-text-c);
+    position        : absolute;
+    padding         : 0.25em;
+    top             : 3em;
+    bottom          : .5em; 
+    left            : .5em;
+    right           : .5em;
+}
+
+.DialogCloser {
+    background-image: url("./closebtn.svg");
+    position        : absolute;
+    top             : 0.8em;
+    width           : 32px;
+    height          : 32px;
+    right           : 1em;
+}
+
+.DialogCloser:hover {
+    filter          : brightness(1.25);
+}
+
+#RunMenu {
+    background-color: var(--background-color);
+    border-color    : var(--secondary-color);
+    border-style    : solid;
+    border-radius   : 5px;
+    transition      : var(--transition-time);
+}
+
+#RunMenu:hover {
+    background-color: var(--secondary-color);
+}
+
+#Toolbar  {
+    border-color    : #E6EAF5;
+    font-family     : inherit;
+    background-color: #E6EAF5;
+    color           : var(--secondary-text-c);
+    border-style    : solid;
+    border-radius   : 2px;
+}
+
+#Toolbar > toolbar-item {
+    font-family     : inherit;
+    color           : var(--secondary-text-c);
+    padding         : 0 0.25em 0;
+    
+    transition      : var(--transition-time);
+}
+
+#Toolbar > toolbar-item:hover {
+    background-color: var(--selection-color);
+    color           : var(--text-color);
+    border-color    : var(--text-color);
+}
+
+#Output  {
+    border-color    : var(--secondary-color);
+    font-family     : "CascadiaCode";
+    background-color: var(--text-color);
+    color           : var(--secondary-text-c);
+    border-style    : solid;
+    border-radius   : 5px;
+}
+
+#ToolbarItemSelection {
+    background-color: var(--text-color);
+    border          : 2px solid #777D86;
+    padding         : 2px;
+}
+
+#ToolbarItemSelection > ul {
+    transition      : var(--transition-time);
+    color           : var(--secondary-text-c);
+    margin          : 0;
+}
+
+#ToolbarItemSelection > ul:hover {
+    background-color: #3399FF;
+    color           : var(--text-color);
+}
+
+#Codes {
+    border-color    : var(--secondary-color);
+    background-color: var(--text-color);
+    color           : var(--secondary-text-c);
+    caret-color     : var(--secondary-text-c);
+    border          : solid var(--secondary-color);
+    border-radius   : 5px;
+    font-family     : "CascadiaCode";
+}

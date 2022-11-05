@@ -4,11 +4,14 @@ import (
 	"bufio"
 	"fmt"
 	"reflect"
+	"strconv"
 	"strings"
 )
 
 func Tokenize(raw []byte) []Instruction {
-	ShowDialog("simple", "Output of lexer", fmt.Sprintf("%v", Split(string(raw))))
+	SetOutput("Output of lexer: \n" + fmt.Sprintf("%v", Split(string(raw))))
+	tm, _ := Compile(Split(string(raw)))
+	ShowDialog("simple", "Compiler: ", fmt.Sprintf("%v", tm))
 
 	return []Instruction{}
 }
@@ -74,4 +77,45 @@ func Split(raw string) [][]string {
 	}
 
 	return buf
+}
+
+func Compile(raw [][]string) ([]Instruction, error) {
+	tmpInstrList := []Instruction{}
+
+	for _, e := range raw {
+		instrName := ""
+		instrArgs := []uint32{}
+		instrType := []ArgType{}
+
+		for j, e2 := range e {
+			if j != 0 {
+				switch []byte(e2)[0] {
+				case 'R', 'r', '$':
+					tm, er := strconv.Atoi(e2[1:])
+					if er != nil {
+						return nil, er
+					}
+					instrArgs = append(instrArgs, uint32(tm))
+					instrType = append(instrType, Register)
+				case 'M', 'm', '#':
+					tm, er := strconv.Atoi(e2[1:])
+					if er != nil {
+						return nil, er
+					}
+					instrArgs = append(instrArgs, uint32(tm))
+					instrType = append(instrType, Memory)
+				case '%':
+					instrArgs = append(instrArgs, uint32(PortsPointer[e2[1:]]))
+					instrType = append(instrType, Immediate)
+				default:
+				}
+			} else {
+				instrName = e2
+			}
+		}
+
+		tmpInstrList = append(tmpInstrList, Instruction{InstructionPointers[instrName], instrArgs, instrType})
+	}
+
+	return tmpInstrList, nil
 }

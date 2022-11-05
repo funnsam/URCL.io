@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="48"
+   height="32"
+   viewBox="0 0 48.000001 32"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
+   sodipodi:docname="closebtnaero.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="px"
+     showgrid="false"
+     inkscape:zoom="12.59375"
+     inkscape:cx="16.754342"
+     inkscape:cy="27.315136"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     showguides="false" />
+  <defs
+     id="defs2">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient1004">
+      <stop
+         style="stop-color:#e9a99c;stop-opacity:1;"
+         offset="0"
+         id="stop1000" />
+      <stop
+         style="stop-color:#cda8a6;stop-opacity:1;"
+         offset="0.24061821"
+         id="stop935" />
+      <stop
+         style="stop-color:#c57d73;stop-opacity:1;"
+         offset="0.73554736"
+         id="stop3184" />
+      <stop
+         style="stop-color:#c57d73;stop-opacity:1;"
+         offset="0.73737103"
+         id="stop4638" />
+      <stop
+         style="stop-color:#b04c3c;stop-opacity:1;"
+         offset="0.7404955"
+         id="stop5366" />
+      <stop
+         style="stop-color:#be7d6a;stop-opacity:1;"
+         offset="1"
+         id="stop1002" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1004"
+       id="linearGradient934"
+       x1="11.600305"
+       y1="4.1488152"
+       x2="11.600305"
+       y2="11.845958"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(2.9868982,0,0,4.0157198,0.60485762,-19.664155)" />
+  </defs>
+  <g
+     inkscape:label="圖層 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-0.24826765,-4.1241341)">
+    <rect
+       style="fill:url(#linearGradient934);fill-opacity:1;stroke:#33140d;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
+       id="rect788"
+       width="46.307274"
+       height="31.128782"
+       x="1.3464078"
+       y="-3.1027877"
+       ry="2.6747289" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11px;line-height:0;font-family:'Cascadia Code';-inkscape-font-specification:'Cascadia Code';text-align:center;text-anchor:middle;white-space:pre;inline-size:22.3153;display:inline;fill:#fafafa;fill-opacity:1;stroke:#535666;stroke-width:0.488758;stroke-dasharray:none;stroke-opacity:1"
+       x="6.9874773"
+       y="7.5879636"
+       id="text1671"
+       transform="matrix(2.1215234,0,0,1.7550138,9.4302347,9.6332795)"><tspan
+         x="6.9874773"
+         y="7.5879636"
+         id="tspan7613"><tspan
+           style="font-weight:bold;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI Bold'"
+           id="tspan7611">x</tspan></tspan></text>
+  </g>
+</svg>

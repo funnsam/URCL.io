@@ -1,0 +1,26 @@
+.Dialog {
+    background-color: #9ab6d271;
+    backdrop-filter : blur(5px);
+}
+
+.DialogCloser {
+    background-image: url("./closebtnaero.svg");
+    top             : 0em;
+    width           : 48px;
+}
+
+.DialogTitle {
+    position        : absolute;
+    top             : 0.6em;
+}
+
+.DialogContent {
+    background-color: var(--text-color);
+    color           : var(--secondary-text-c);
+    position        : absolute;
+    padding         : 0.25em;
+    top             : 2.5em;
+    bottom          : 0.5em; 
+    left            : 0.5em;
+    right           : 0.5em;
+}

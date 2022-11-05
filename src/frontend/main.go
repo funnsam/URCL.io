@@ -12,5 +12,7 @@ func main() {
 	RegisterToolbarMenuItem(js.Null(), []js.Value{js.ValueOf("Editor"), js.ValueOf("Dauog"), js.Global().Get("PlaceholderDog")})
 	RegisterToolbarMenuItem(js.Null(), []js.Value{js.ValueOf("Plugins"), js.ValueOf("Exclusive to Plugins"), js.Global().Get("Placeholder")})
 
+	js.Global().Get("SetupSettingMenu").Invoke()
+
 	Hang()
 }

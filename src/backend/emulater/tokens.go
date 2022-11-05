@@ -8,63 +8,71 @@ type Instruction struct {
 	ArgType []ArgType
 }
 
-type ArgType uint8
+type ArgType int
 
 const (
-	Register  = 0
-	Immediate = 1
+	Register ArgType = iota
+	Immediate
+	Memory
 )
 
 type DefineInstruction struct {
-	ArgCount int                            // 0 is for any
+	ArgCount int                            // -1 is for any
 	OnCall   func([]Instruction, int) error // OnCall(AllInstr, CurrentIndex) error
 }
 
 var InstructionPointers = make(map[string]uint16)
-var InstructionList = make(map[uint16]DefineInstruction)
+var InstructionList = make(map[int]DefineInstruction)
+var NextInstrID = 1
 
-var (
-	TokenIN   = 1
-	TokenOUT  = 2
-	TokenADD  = 3
-	TokenRSH  = 4
-	TokenLOD  = 5
-	TokenSTR  = 6
-	TokenBGE  = 7
-	TokenNOR  = 8
-	TokenMOV  = 9 // IMM will be translated to MOV
-	TokenSUB  = 10
-	TokenJMP  = 11 // NOP will be replaced by MOV R0 R0
-	TokenLSH  = 12
-	TokenINC  = 13
-	TokenDEC  = 14
-	TokenNEG  = 15
-	TokenAND  = 16
-	TokenOR   = 17 // NOT will be replaced by NOR R? R0
-	TokenXOR  = 18
-	TokenXNOR = 19
-	TokenNAND = 20
-	TokenBRL  = 21
-	TokenBRG  = 22
-	TokenBNE  = 23
-	TokenBOD  = 24
-	TokenBEV  = 25
-	TokenBLE  = 26
-	TokenBRZ  = 27
-	TokenBRN  = 28
-	TokenBRP  = 29
-	TokenPSH  = 30
-	TokenPOP  = 31
-	TokenCAL  = 32
-	TokenRET  = 33
-	TokenHLT  = 34
-	TokenCPY  = 35
-	TokenBRC  = 36
-	TokenBNC  = 37
+const (
+	TokenINVALID uint32 = iota
+	TokenIN
+	TokenOUT
+	TokenADD
+	TokenRSH
+	TokenLOD
+	TokenSTR
+	TokenBGE
+	TokenNOR
+	TokenMOV // IMM will be translated to MOV
+	TokenSUB
+	TokenJMP // NOP will be replaced by MOV R0 R0
+	TokenLSH
+	TokenINC
+	TokenDEC
+	TokenNEG
+	TokenAND
+	TokenOR // NOT will be replaced by NOR R? R0
+	TokenXOR
+	TokenXNOR
+	TokenNAND
+	TokenBRL
+	TokenBRG
+	TokenBNE
+	TokenBOD
+	TokenBEV
+	TokenBLE
+	TokenBRZ
+	TokenBRN
+	TokenBRP
+	TokenPSH
+	TokenPOP
+	TokenCAL
+	TokenRET
+	TokenHLT
+	TokenCPY
+	TokenBRC
+	TokenBNC
 )
 
-func init() {
-	InstructionList[0] = DefineInstruction{0, func([]Instruction, int) error {
-		return errors.New("Syntax error or an invalid instruction has been registered")
-	}}
+func RegisterURCLInstruction(name string, fnc func([]Instruction, int) error, argv int) int {
+	InstructionPointers[name] = uint16(NextInstrID)
+	InstructionList[NextInstrID] = DefineInstruction{argv, fnc}
+	NextInstrID++
+	return NextInstrID
+}
+
+func OnInvalidInstruction([]Instruction, int) error {
+	return errors.New("urcl compiler: Syntax error or an invalid instruction has been registered")
 }

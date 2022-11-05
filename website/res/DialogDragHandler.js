@@ -1,8 +1,10 @@
-function StartDrag(ev) {
+function StartDrag(ev, targ) {
     const rect = ev.target.getBoundingClientRect();
   
     offsetX = ev.clientX - rect.x;
     offsetY = ev.clientY - rect.y;
+
+    targ.parentNode.appendChild(targ);
 };
 
 function StopDrag(ev, targ) {
