@@ -24,10 +24,9 @@
     
     <hidden id="Hidden">
         <div id="ToolbarItemSelection"></div>
-        <div id="Dialog" class="Dialog" draggable="true" ondragstart="StartDrag(event, this);" ondragend="StopDrag(event, this.id);"
-        onclick="this.parentNode.appendChild(this)">
+        <div id="Dialog" class="Dialog" draggable="true" ondragstart="StartDrag(event, this);" ondragend="StopDrag(event, this.id);">
             <span id="DialogCloser" class="DialogCloser" onclick="CloseDialog(this.parentNode);"></span>
-            <div id="DialogTitle" class="DialogTitle">Fallback Dialog</div><br>
+            <div id="DialogTitle" class="DialogTitle" onclick="this.parentNode.parentNode.appendChild(this.parentNode)">Fallback Dialog</div><br>
             <div id="DialogContent" class="DialogContent">Is it not implemented? idk.</div>
         </div>
     </hidden>

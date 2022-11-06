@@ -50,6 +50,16 @@ func ShowDialog(this js.Value, args []js.Value) interface{} {
 		dialog.Get("childNodes").Index(3).Set("innerHTML", args[1].String())
 		dialog.Get("childNodes").Index(6).Set("innerHTML", args[2].String())
 
+	case "simplewithsize":
+		if len(args) < 5 {
+			return 0
+		}
+		dialog.Get("style").Set("width", args[3])
+		dialog.Get("style").Set("height", args[4])
+
+		dialog.Get("childNodes").Index(3).Set("innerHTML", args[1].String())
+		dialog.Get("childNodes").Index(6).Set("innerHTML", args[2].String())
+
 	default:
 		return 0
 	}

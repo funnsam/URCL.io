@@ -10,7 +10,18 @@
     <title>Preview theme</title>
 </head>
 <body>
-    Coming soon!<br>Your theme uses:
-    <span id="tmp"></span>
+    <div id="Toolbar"><toolbar-item id="ToolbarItemEditor">Editor</toolbar-item><toolbar-item id="ToolbarItemPlugins">Plugins</toolbar-item></div>
+    <div id="ToolbarItemSelection" style="left: 30px; top: 2.5em;"><ul>Exclusive to Editor</ul><ul>Dauog</ul><ul>Settings</ul></div>
+    <div id="RunMenu">Run</div>
+
+    <textarea id="Codes" readonly style="top: 3em; right: 1em; width: 44vw;">Hello world!</textarea>
+    <textarea id="Output" readonly style="top: 3em; left: 1em; width: 44vw;">Output</textarea>
+
+    <div id="Dialog" class="Dialog" style="width: 350px; height: 90px; top: 350px;" >
+        <span id="DialogCloser" class="DialogCloser"></span>
+        <div id="DialogTitle" class="DialogTitle">Hello World Demo</div><br>
+        <div id="DialogContent" class="DialogContent">Preview this awsome/ awful theme!</div>
+    </div>
+    </hidden>
 </body>
 </html>
