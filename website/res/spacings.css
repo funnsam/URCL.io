@@ -16,6 +16,11 @@ body {
     z-index         : 1;
     resize          : both;
     overflow        : auto;
+    width           : 500px;
+    height          : 500px;
+
+    top             : calc(50% - 250px);
+    left            : calc(50% - 250px);
 }
 
 .Dialog * {
@@ -27,6 +32,11 @@ body {
     display         : inline;
 }
 
+.DialogFooter {
+    position        : absolute;
+    bottom          : 1em;
+}
+
 .DialogCloser {
     text-align      : right;
     height          : 0.6em;
@@ -34,6 +44,19 @@ body {
     display         : inline-block;
     cursor          : pointer;
     margin-bottom   : 0.05em;
+}
+
+.DialogContent {
+    position        : absolute;
+    padding         : 0.25em;
+    top             : 2.5em;
+    bottom          : 0.5em; 
+    left            : 0.5em;
+    right           : 0.5em;
+}
+
+#ThemePreviewWindow {
+    border          : 2px solid;
 }
 
 #RunMenu {

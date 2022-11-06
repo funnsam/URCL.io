@@ -44,8 +44,6 @@ func ShowDialog(this js.Value, args []js.Value) interface{} {
 	dialog.Set("id", "Dialog"+dialogid)
 	dialog.Get("childNodes").Index(3).Set("id", "DialogTitle"+dialogid)
 	dialog.Get("childNodes").Index(6).Set("id", "DialogContent"+dialogid)
-	dialog.Get("style").Set("left", "30vw")
-	dialog.Get("style").Set("top", "30vh")
 
 	switch args[0].String() {
 	case "simple":

@@ -45,17 +45,13 @@ body {
 .DialogTitle {
     color           : var(--secondary-text-c);
     font-weight     : 500;
+    position        : absolute;
+    top             : 0.7em;
 }
 
 .DialogContent {
     background-color: var(--text-color);
     color           : var(--secondary-text-c);
-    position        : absolute;
-    padding         : 0.25em;
-    top             : 3em;
-    bottom          : .5em; 
-    left            : .5em;
-    right           : .5em;
 }
 
 .DialogCloser {
@@ -69,6 +65,10 @@ body {
 
 .DialogCloser:hover {
     filter          : brightness(1.25);
+}
+
+#ThemePreviewWindow {
+    border          : 2px solid var(--secondary-color);
 }
 
 #RunMenu {
