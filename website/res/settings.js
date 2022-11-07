@@ -18,6 +18,7 @@ function ShowThemingWindow() {
         <option>--Chose a theme--</option>
         <option>Windows 7 Basic</option>
         <option>Windows 7 Aero</option>
+        <option>Dreaming</option>
         <option>Modern UI</option>
         </select><br>
         <lable>Set your own: </lable><input onkeydown="AdavncedSetTheme(event, this.value);" id="AdvancedTheme"
@@ -31,6 +32,8 @@ function GetThemeSources(name) {
             return "./themes/win7/basic.css";
         case "Windows 7 Aero":
             return "./themes/win7/basic.css,./themes/win7/aeropatch.css";
+        case "Dreaming":
+            return "./themes/dream/basic.css";
         case "Modern UI":
             return "./themes/modern/modern.css";
     }

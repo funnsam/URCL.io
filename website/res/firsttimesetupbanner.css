@@ -34,3 +34,15 @@
     transform           : translate(-50%, -50%);
     margin              : 0;
 }
+
+#WaitForSetupBannerSkipBtn {
+    position            : absolute;
+    top                 : 60%;
+    left                : 50%;
+    transform           : translate(-50%, -50%);
+    margin              : 0;
+    background-color    : transparent;
+    color               : #4b4b4b5d;
+    border              : none;
+    font-family         : monospace;
+}

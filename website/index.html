@@ -17,6 +17,9 @@
     <title>URCL.io</title>
 </head>
 <body ondragover="event.preventDefault(); event.dataTransfer.dropEffect = 'move';">
+    <noscript style="position: absolute; top: 40%; left: 40%; background-color: red;">
+        No JavaScript!
+    </noscript>
     <div id="Toolbar"></div>
     <div id="RunMenu" onclick="InvokeEmulater();">Run</div>
 
@@ -33,6 +36,8 @@
         <banner id="WaitForSetupBanner">
             <h2 id="WaitForSetupBannerText">
                 Please wait for the first time setup process is done.</h2>
+
+            <button id="WaitForSetupBannerSkipBtn" onclick="SetCookie(`FirstTimeSetupDone`, `yes`); location.reload();">Skip?</button>
         </banner>
     </hidden>
 </body>

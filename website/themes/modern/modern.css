@@ -84,6 +84,7 @@ body {
     color           : inherit;
     border-style    : solid;
     border-radius   : 5px;
+    border-width    : 2px;
 }
 
 #ToolbarItemSelection {
@@ -104,7 +105,7 @@ body {
     background-color: var(--background-color);
     color           : var(--text-color);
     caret-color     : white;
-    border          : solid var(--secondary-color);
+    border          : solid 2px var(--secondary-color);
     border-radius   : 5px;
     font-family     : inherit;
 }
