@@ -103,7 +103,7 @@ body {
 }
 
 #Toolbar > toolbar-item:hover {
-    background-color: var(--selection-color);
+    background-color: #3399FF;
     color           : var(--text-color);
     border-color    : var(--text-color);
 }

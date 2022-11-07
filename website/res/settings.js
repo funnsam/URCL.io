@@ -20,9 +20,9 @@ function ShowThemingWindow() {
         <option>Windows 7 Aero</option>
         <option>Modern UI</option>
         </select><br>
-        <lable>Set your own: </lable><input oninput="AdavncedSetTheme(this.value);" id="AdvancedTheme" style="width: calc(100% - 8px);"></input><br>
-        <button onclick="ChangeTheme();CloseDialog(this.parentNode.parentNode);" class="DialogFooter">Apply theme (You need to restart to apply)</button>`,
-        "1000px", "750px")
+        <lable>Set your own: </lable><input onkeydown="AdavncedSetTheme(event, this.value);" id="AdvancedTheme"
+        style="width: calc(100% - 8px);"></input><br><button onclick="ChangeTheme();CloseDialog(this.parentNode.parentNode);" class="DialogFooter">
+        Apply theme (You need to restart to apply)</button>`, "1000px", "750px")
 }
 
 function GetThemeSources(name) {
@@ -43,11 +43,26 @@ function UserFriendlyChangeTheme() {
     ThemeSelMode = 0;
 }
 
-function AdavncedSetTheme(value) {
-    document.getElementById("ThemePreviewWindow").src = `./themepreview.html?themelist=${value}`;
-    document.getElementById("ThemeSel").selectedIndex = 0;
+let ReadyToRestartSetup = false
 
-    ThemeSelMode = 1;
+function AdavncedSetTheme(ev, value) {
+    switch (ev.keyCode) {
+        case 17:
+            ReadyToRestartSetup = true;
+            break;
+
+        case 68:
+            if (ReadyToRestartSetup == true) ResetCookie("FirstTimeSetupDone");
+            break;
+
+        default:
+            document.getElementById("ThemePreviewWindow").src = `./themepreview.html?themelist=${value}`;
+            document.getElementById("ThemeSel").selectedIndex = 0;
+
+            ReadyToRestartSetup = false;
+            ThemeSelMode = 1;
+            break;
+    }
 }
 
 function ChangeTheme() {

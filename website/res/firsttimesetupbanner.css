@@ -1,0 +1,36 @@
+@keyframes SetupBannerEffects {
+    0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+#WaitForSetupBanner {
+    position            : fixed;
+    z-index             : 9999;
+    background          : rgb(25,50,75);
+    background          : linear-gradient(295deg, rgba(25,50,75,1) 0%, rgba(48,83,96,1) 20%, rgba(23,73,88,1) 41%, rgba(37,62,92,1) 59%,
+                         rgba(34,61,92,1) 87%, rgba(6,61,101,1) 95%, rgba(28,73,74,1) 100%); 
+    background-size     : 400% 400%;
+    color               : white;
+    font-family         : monospace;
+    animation-name      : SetupBannerEffects;
+    animation-duration  : 4s;
+    animation-direction : alternate;
+    animation-iteration-count: infinite;
+
+    top: 0; left: 0; right: 0; bottom: 0; 
+}
+
+#WaitForSetupBannerText {
+    position            : absolute;
+    top                 : 50%;
+    left                : 50%;
+    transform           : translate(-50%, -50%);
+    margin              : 0;
+}
