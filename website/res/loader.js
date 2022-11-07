@@ -12,11 +12,7 @@ if (GetCookie("FirstTimeSetupDone") === "") {
     document.getElementsByTagName("body")[0].appendChild(document.getElementById("WaitForSetupBanner"))
 
     let SetupWizard = window.open("./firsttimesetup/", "./firsttimesetup/", "width=500,height=500");
-    setInterval(async function() {if (SetupWizard.closed) {
-        document.getElementById("WaitForSetupBannerText").innerHTML = "Almost there, just one more reload.";
-        await new Promise(resolve => setTimeout(resolve, 500));
-        location.reload();
-    }}, 250);})
+    setInterval(async function() {if (SetupWizard.closed) location.reload();}, 250);})
 }
 
 LoadCSSs(GetCookie("theme"));
