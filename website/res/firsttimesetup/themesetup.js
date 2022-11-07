@@ -1,5 +1,4 @@
-async function OnStartThemeSetup() {
-    const Bar = document.getElementById("ThemeSetupBar");
+export async function OnStartThemeSetup() {
     const SystemSpeed = await BenchmarkSystemAcc();
     
     if (SystemSpeed >= 4444.08) {
@@ -7,8 +6,6 @@ async function OnStartThemeSetup() {
     } else {
         SetCookie("theme", "./themes/win7/basic.css,./themes/win7/aeropatch.css")
     }
-
-    Bar.value = 4;
 }
 
 function Delay(time) {
@@ -16,18 +13,13 @@ function Delay(time) {
 }
 
 async function BenchmarkSystemAcc() {
-    const Bar = document.getElementById("ThemeSetupBar");
-
     const First = BenchmarkSystem();
     await Delay(3000);
-    Bar.value = 1;
 
     const Second = BenchmarkSystem();
     await Delay(3000);
-    Bar.value = 2;
 
     const Third = BenchmarkSystem();
-    Bar.value = 3;
 
     return (First + Second + Third) / 3;
 }

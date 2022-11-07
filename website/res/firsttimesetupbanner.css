@@ -20,7 +20,7 @@
     color               : white;
     font-family         : monospace;
     animation-name      : SetupBannerEffects;
-    animation-duration  : 4s;
+    animation-duration  : 5s;
     animation-direction : alternate;
     animation-iteration-count: infinite;
 

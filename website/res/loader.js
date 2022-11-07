@@ -7,12 +7,14 @@ function LoadWASM(url) {
 LoadWASM("./res/main.wasm");
 LoadWASM("./res/emulater.wasm");
 
+LoadCSSs(GetCookie("theme"));
+
+import {FirstTimeSetupSetup} from "./firsttimesetup/setup.js"; 
+
 if (GetCookie("FirstTimeSetupDone") === "") {
     document.addEventListener('DOMContentLoaded', async (event) => {
-    document.getElementsByTagName("body")[0].appendChild(document.getElementById("WaitForSetupBanner"))
-
-    let SetupWizard = window.open("./firsttimesetup/", "./firsttimesetup/", "width=500,height=500");
-    setInterval(async function() {if (SetupWizard.closed) location.reload();}, 250);})
+        document.getElementsByTagName("body")[0].appendChild(document.getElementById("WaitForSetupBanner"))
+        await FirstTimeSetupSetup();
+        location.reload();
+    })
 }
-
-LoadCSSs(GetCookie("theme"));
